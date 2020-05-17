@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eu
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+docker build -t laravel-queue-monitor -f docker/Dockerfile "$ROOT"

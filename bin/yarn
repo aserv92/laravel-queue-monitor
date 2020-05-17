@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -eu
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+. "$ROOT"/docker/lib/docker_host_user_id.sh
+
+docker run \
+    -e LOCAL_USER_ID=$DOCKER_HOST_USER_ID \
+    -e REDIS_KEY_PREFIX="" \
+    -e LARAVEL_QUEUES="" \
+    -e REDIS_HOST="" \
+    -e REDIS_PORT="" \
+    -e REDIS_PASSWORD="" \
+    -it \
+    --network="" \
+    --rm \
+    -v $(pwd):/workdir:delegated \
+    -v ~/.cache:/home/user/.cache:delegated \
+    chekote/node:12.16.2-alpine \
+    yarn "$@"
