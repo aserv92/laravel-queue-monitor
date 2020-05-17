@@ -27,7 +27,7 @@ docker run \
     -e REDIS_PASSWORD="your_redis_password" \
     --network='global' \
     -it \
-    laravel-queue-monitor
+    aserv92/laravel-queue-monitor
 
 ### Connect to redis on a custom docker network without a redis password
 docker run \
@@ -35,7 +35,7 @@ docker run \
     -e REDIS_HOST="your_redis.local" \
     --network='app_network_1' \
     -it \
-    laravel-queue-monitor
+    aserv92/laravel-queue-monitor
 
 ### Watch multiple queues at the same time
 docker run \
@@ -44,4 +44,4 @@ docker run \
     -e REDIS_PASSWORD="your_redis_password" \
     --network='global' \
     -it \
-    laravel-queue-monitor
+    aserv92/laravel-queue-monitor
